@@ -23,16 +23,13 @@ STRIP         = strip
 
 all: $(TARGET)
 
-chain.o: ../include/CWGI/cwgi.h chain.cpp MessageBuffer.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chain.o chain.cpp
-
 cwgi.o: ../include/CWGI/cwgi.h cwgi.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cwgi.o cwgi.cpp
 
-$(TARGET): cwgi.o chain.o
+$(TARGET): cwgi.o
 	-mkdir -p ../lib
 	-rm -f $(TARGET) $(TARGET0) $(TARGET1) $(TARGET2)
-	$(LINK) $(LFLAGS) -o $(TARGET) cwgi.o chain.o
+	$(LINK) $(LFLAGS) -o $(TARGET) cwgi.o
 	-ln -s $(TARGET) $(TARGET0)
 	-ln -s $(TARGET) $(TARGET1)
 	-ln -s $(TARGET) $(TARGET2)

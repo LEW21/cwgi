@@ -2,16 +2,12 @@ DESTDIR = /usr/local
 
 all: lib/libCWGI.so
 
-ATL:
-	git clone git://gitorious.org/atl/atl.git ATL
-
-lib/libCWGI.so: ATL
+lib/libCWGI.so:
 	cd src && make
 
 clean:
 	-rm -f *~
 	-find . -name *~ -exec rm -f {} \;
-	-rm -Rf ATL
 	cd src && make clean
 
 distclean: clean

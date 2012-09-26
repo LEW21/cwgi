@@ -4,7 +4,6 @@
 #include <map>
 #include <string>
 #include <functional>
-#include <vector>
 
 namespace CWGI
 {
@@ -30,8 +29,6 @@ namespace CWGI
 	};
 
 	typedef std::function<void (Request&, Response&)> Application;
-
-	Application chain(const std::vector<Application>&);
 
 	typedef Application* (*ApplicationFactory)();
 }
